@@ -1,0 +1,136 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text */
+    margin: 20px;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 42px;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+}
+
+h1 span {
+    background: linear-gradient(to right, #6C63FF, #3B82F6); /* Gradient background */
+    color: transparent;
+    background-clip: text; /* Standard property for text gradient */
+    -webkit-background-clip: text; /* Webkit browsers for gradient */
+    display: inline; /* Ensures the text has gradient */
+    animation: fadeIn 1s ease-in-out;
+}
+
+p {
+    font-size: 18px;
+    color: #bbb;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Links Container Styling */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Link Item Styling */
+.link-item {
+    background-color: #1e1e1e; /* Dark background for links */
+    border: 1px solid #444;   /* Dark border */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.5s forwards; /* Animation on appearance */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.link-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.link-item h2 {
+    font-size: 26px;
+    color: #1e90ff; /* Bright blue for titles */
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+
+.link-item p {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.link-item a {
+    color: #1e90ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.link-item a:hover {
+    color: #fff; /* Light color on hover */
+    text-decoration: underline;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer Styles */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #1e1e1e; /* Dark background for footer */
+    color: #ccc; /* Light text */
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    border-top: 1px solid #444; /* Slight border to separate it from the content */
+}
+
+footer a {
+    color: #1e90ff; /* Blue color for any links in footer */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
