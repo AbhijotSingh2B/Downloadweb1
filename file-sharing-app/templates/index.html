@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Sharing Platform</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>File Sharing Platform</h1>
+        <form id="uploadForm">
+            <input type="file" id="fileInput" required>
+            <button type="submit">Upload</button>
+        </form>
+        <div id="status"></div>
+        <h2>Available Files</h2>
+        <ul id="fileList">
+            <!-- Files will be dynamically listed here -->
+            {% for file in files %}
+            <li>
+                <a href="{{ url_for('download_file', filename=file) }}">{{ file }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script>
+        const uploadForm = document.getElementById('uploadForm');
+        const fileInput = document.getElementById('fileInput');
+        const statusDiv = document.getElementById('status');
+
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const file = fileInput.files[0];
+            if (!file) return;
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData,
+                });
+                const message = await response.text();
+                statusDiv.textContent = message;
+                fileInput.value = '';
+                location.reload(); // Refresh the page to show the new file
+            } catch (error) {
+                statusDiv.textContent = "An error occurred!";
+                console.error(error);
+            }
+        });
+    </script>
+</body>
+</html>
+
