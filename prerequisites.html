@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Files - Multi-Use App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1><span>Prerequisites</span></h1>
+        <p>Below are some pre-requisites for running python and/or other languages. Click on any file to download or view details.</p>
+    </header>
+
+    <div id="files-container" class="links-container">
+        <!-- Files will be inserted dynamically -->
+    </div>
+
+    <div class="image-container"></div>
+
+    <header>You have reached the end of the Page!</header>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made by <strong>Abhijot Singh VIII A D.P.S</strong></p>
+    </footer>
+
+    <script>
+        // Pre-loaded files specific to the Multi-Use App project
+        const files = [
+            { name: "Python", description: "Official website for Python programming language.", url: "https://www.python.org" },
+            { name: "VsCode By Microsoft", description: "Vscode Code/Text Editor. It makes Coding much easier (Using Extensions)", url: "https://code.visualstudio.com/download" },
+            { name: "Efficient Multi-use app (ChatGPT)", description: "A Reference File for How to write streamlined code", url: "https://mega.nz/file/3QdASJzC#JDFhVP1df-Re5-4SrboAOh2u3zg78NXqZ9lX4Mjra9U" },
+        ];
+
+        function renderFiles() {
+            const container = document.getElementById('files-container');
+
+            files.forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.classList.add('link-item');
+                fileItem.style.animationDelay = `${index * 0.3}s`; // Add delay for sequential animation
+
+                fileItem.innerHTML = `
+                    <h2><a href="${file.url}" target="_blank">${file.name}</a></h2>
+                    <p>${file.description}</p>
+                `;
+
+                container.appendChild(fileItem);
+            });
+        }
+
+        // Render the files on DOM content loaded
+        document.addEventListener("DOMContentLoaded", renderFiles);
+    </script>
+</body>
+</html>
+
